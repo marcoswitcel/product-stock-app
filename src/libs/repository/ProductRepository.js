@@ -16,6 +16,22 @@ export class ProductRepository {
       return { error };
     }
   }
+
+  /**
+   * Retorna todos os registro do banco por hora
+   *
+   * @todo retornar dados paginado, aceitar parâmetro de paginação
+   *
+   * @returns {Promise<{ data: any[]}> | Promise<{ error: any}> }
+   */
+  static async getAll () {
+    try {
+      const response = await axios.get('/api/v1/product');
+      return { data: response.data };
+    } catch (error) {
+      return { error };
+    }
+  }
 }
 
 export default ProductRepository;
