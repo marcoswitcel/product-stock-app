@@ -69,7 +69,9 @@ export default {
     async checkForm (event) {
       event.preventDefault();
 
-      const response = await ProductRepository.add(this.model);
+      const response = (this.isUpdating)
+        ? await ProductRepository.update(this.model, this.model.id)
+        : await ProductRepository.add(this.model);
 
       if (response.error) {
         // eslint-disable-next-line

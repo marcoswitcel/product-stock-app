@@ -18,6 +18,22 @@ export class ProductRepository {
   }
 
   /**
+   * Atualiza os dados de um produto
+   *
+   * @param {object} model
+   * @param {number} id
+   * @returns {Promise<object>}
+   */
+  static async update (model, id) {
+    try {
+      const response = await axios.put(`/api/v1/product/${id}`, model);
+      return response.data;
+    } catch (error) {
+      return { error };
+    }
+  }
+
+  /**
    * Retorna todos os registro do banco por hora
    *
    * @todo retornar dados paginado, aceitar parâmetro de paginação
