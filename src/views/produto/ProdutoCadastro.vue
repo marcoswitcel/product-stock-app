@@ -1,11 +1,17 @@
 <template>
-  <div>O cadastro vai aqui</div>
+  <div>
+    <FormProduto />
+  </div>
 </template>
 
 <script>
+import FormProduto from '../../components/FormProduto.vue';
 
 export default {
-  name: 'ProdutoCadastro'
+  name: 'ProdutoCadastro',
+  components: {
+    FormProduto
+  }
 };
 
 </script>

@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <router-view :key="$route.name"></router-view>
+    <div class="row">
+      <div class="col-12">
+        <router-view :key="$route.name"></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
