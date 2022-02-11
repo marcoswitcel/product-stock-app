@@ -20,5 +20,11 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Referência de configuração
+
+Ver mais [Configuration Reference](https://cli.vuejs.org/config/).
+
+### DevServer & Proxy
+
+* Regra de proxy que redireciona as request para o backend [https://cli.vuejs.org/config/#devserver-proxy](https://cli.vuejs.org/config/#devserver-proxy).
+
