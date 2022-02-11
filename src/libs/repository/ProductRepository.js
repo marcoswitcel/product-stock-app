@@ -32,6 +32,21 @@ export class ProductRepository {
       return { error };
     }
   }
+
+  /**
+   * Busca e retorna o registro por id
+   *
+   * @param {number} id Id do produto que deve ser retornado
+   * @returns {Promise<object>}
+   */
+  static async getById (id) {
+    try {
+      const response = await axios.get(`/api/v1/product/${id}`);
+      return response.data;
+    } catch (error) {
+      return { error };
+    }
+  }
 }
 
 export default ProductRepository;
