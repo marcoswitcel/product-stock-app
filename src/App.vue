@@ -4,6 +4,7 @@
       <div class="col-12 py-2">
         <router-link :to="{ name: 'Produto.Listagem'}" class="btn btn-sm btn-primary m-1">Lista de Produtos</router-link>
         <router-link :to="{ name: 'Produto.Cadastro'}" class="btn btn-sm btn-primary m-1">Cadastrar Novo Produto</router-link>
+        <router-link :to="{ name: 'MovimentoProduto.Cadastro'}" class="btn btn-sm btn-primary m-1">Cadastrar Novo Movimento</router-link>
       </div>
     </div>
   </div>

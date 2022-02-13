@@ -32,6 +32,17 @@ const routes = [
         component: () => import('../views/produto/ProdutoVisualizacao.vue')
       }
     ]
+  },
+  {
+    path: '/movimento-produto/',
+    component: () => import('../views/Layout.vue'),
+    children: [
+      {
+        path: '/movimento-produto/cadastro',
+        name: 'MovimentoProduto.Cadastro',
+        component: () => import('../views/movimento-produto/MovimentoProdutoCadastro.vue')
+      }
+    ]
   }
 ];
 

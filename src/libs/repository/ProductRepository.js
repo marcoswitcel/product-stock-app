@@ -57,6 +57,20 @@ export class ProductRepository {
   }
 
   /**
+   * Retorna todos os registro do banco por hora, sem paginação
+   *
+   * @returns {Promise<{ data: any[]}> | Promise<{ error: any}> }
+   */
+  static async getAllUnpaged () {
+    try {
+      const response = await axios.get('/api/v1/product');
+      return { data: response.data };
+    } catch (error) {
+      return { error };
+    }
+  }
+
+  /**
    * Busca e retorna o registro por id
    *
    * @param {number} id Id do produto que deve ser retornado
