@@ -57,6 +57,27 @@ export class ProductRepository {
   }
 
   /**
+   * Retorna os dados do relatório
+   *
+   * @param {object} param0
+   * @param {type} [param0.page]
+   *
+   * @returns {Promise<{ data: any[]}> | Promise<{ error: any}> }
+   */
+  static async getReport ({ type }) {
+    try {
+      const response = await axios.get('/api/v1/products/report', {
+        params: {
+          type
+        }
+      });
+      return { data: response.data };
+    } catch (error) {
+      return { error };
+    }
+  }
+
+  /**
    * Retorna todos os registro do banco por hora, sem paginação
    *
    * @returns {Promise<{ data: any[]}> | Promise<{ error: any}> }

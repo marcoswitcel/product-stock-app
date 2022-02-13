@@ -5,6 +5,7 @@
         <router-link :to="{ name: 'Produto.Listagem'}" class="btn btn-sm btn-primary m-1">Lista de Produtos</router-link>
         <router-link :to="{ name: 'Produto.Cadastro'}" class="btn btn-sm btn-primary m-1">Cadastrar Novo Produto</router-link>
         <router-link :to="{ name: 'MovimentoProduto.Cadastro'}" class="btn btn-sm btn-primary m-1">Cadastrar Novo Movimento</router-link>
+        <router-link :to="{ name: 'Relatorio.LucrosETotais'}" class="btn btn-sm btn-primary m-1">Visualizar lucro e saída totais por produto</router-link>
       </div>
     </div>
   </div>

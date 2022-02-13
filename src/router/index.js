@@ -43,6 +43,17 @@ const routes = [
         component: () => import('../views/movimento-produto/MovimentoProdutoCadastro.vue')
       }
     ]
+  },
+  {
+    path: '/relatorios/lucro-saida/',
+    component: () => import('../views/Layout.vue'),
+    children: [
+      {
+        path: '/relatorios/lucro-saida/',
+        name: 'Relatorio.LucrosETotais',
+        component: () => import('../views/relatorios/LucrosETotais.vue')
+      }
+    ]
   }
 ];
 
