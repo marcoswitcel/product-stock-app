@@ -115,7 +115,7 @@ export default {
         if (response.error) {
           Swal.fire(
             'O registro não pode ser deletado',
-            `Produto com id = ${id} não deletado`,
+            `Produto com id = ${id} não deletado, já possui transações associadas`,
             'warning'
           );
           product.deletingState = false;
