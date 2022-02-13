@@ -36,13 +36,20 @@ export class ProductRepository {
   /**
    * Retorna todos os registro do banco por hora
    *
-   * @todo retornar dados paginado, aceitar parâmetro de paginação
+   * @param {object} param0
+   * @param {number} param0.page
+   * @param {type} [param0.page]
    *
    * @returns {Promise<{ data: any[]}> | Promise<{ error: any}> }
    */
-  static async getAll () {
+  static async getAll ({ page = 0, type }) {
     try {
-      const response = await axios.get('/api/v1/product');
+      const response = await axios.get('/api/v1/product', {
+        params: {
+          page,
+          type
+        }
+      });
       return { data: response.data };
     } catch (error) {
       return { error };
