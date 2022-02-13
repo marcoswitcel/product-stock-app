@@ -29,9 +29,9 @@
             <button class="btn btn-danger btn-sm ms-1 invisible" type="button">Não visivel</button>
           </td>
           <td v-else>
-            <router-link class="btn btn-sm btn-primary" :to="{ name: 'Produto.Visualizacao', params: { id:  entry.id } }">Visualizar {{ entry.id }}</router-link>
-            <router-link class="btn btn-sm btn-primary mx-1" :to="{ name: 'Produto.Edicao', params: { id:  entry.id } }">Editar {{ entry.id }}</router-link>
-            <button v-if="!entry.deletingState" type="button" class="btn btn-sm btn-danger mx-1" @click="handleDeleteRequest(entry)">Deletar {{ entry.id }}</button>
+            <router-link class="btn btn-sm btn-primary" :to="{ name: 'Produto.Visualizacao', params: { id:  entry.id } }">Visualizar</router-link>
+            <router-link class="btn btn-sm btn-primary mx-1" :to="{ name: 'Produto.Edicao', params: { id:  entry.id } }">Editar</router-link>
+            <button v-if="!entry.deletingState" type="button" class="btn btn-sm btn-danger mx-1" @click="handleDeleteRequest(entry)">Deletar</button>
             <button v-if="entry.deletingState" class="btn btn-danger btn-sm ms-1" type="button">
               Deletando ... <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             </button>
