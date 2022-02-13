@@ -1,23 +1,33 @@
-# product-stock-app
+# App de controle de estoque
 
-## Project setup
+Um app de controle de estoque desenvolvido com Vue3 e Bootstrap5
+
+## Setup do projeto
+
+Primeiro clone o projeto, navegue para a pasta raíz e rode o comando `npm install` para instalar as dependências.
+
 ```
+git clone https://github.com/marcoswitcel/product-stock-app.git
+cd product-stock-app
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Para testar use o server de desenvolvimento.
+
+### Serve de desenvolvimento
+
+Para rodar o serve de desenvolvimento, rode o comando `npm run serve` na paz raíz do projeto.
+O app vai rodar na porta 3000, foi modificado para não conflitar com a porta padrão do SpringBoot.
+O app também usa um proxy reverso configurado no arquivo `vue.config.js` para direcionar as requests para o backend rodando em localhost:8080.
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Comando para o build de produção
+
 ```
 npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Referência de configuração
