@@ -1,7 +1,11 @@
 <template>
   <div class="container">
-    <router-link :to="{ name: 'Produto.Listagem'}">Produto.Listagem</router-link>
-    <router-link :to="{ name: 'Produto.Cadastro'}">Produto.Cadastro</router-link>
+    <div class="row">
+      <div class="col-12 py-2">
+        <router-link :to="{ name: 'Produto.Listagem'}" class="btn btn-sm btn-primary m-1">Lista de Produtos</router-link>
+        <router-link :to="{ name: 'Produto.Cadastro'}" class="btn btn-sm btn-primary m-1">Cadastrar Novo Produto</router-link>
+      </div>
+    </div>
   </div>
   <router-view/>
 </template>

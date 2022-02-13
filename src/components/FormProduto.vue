@@ -52,7 +52,7 @@ export default {
   data () {
     const model = (this.registry) ? this.registry : {
       description: '',
-      productType: '',
+      productType: { id: '' },
       price: '',
       quantityInStock: ''
     };
