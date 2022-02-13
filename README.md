@@ -1,6 +1,7 @@
 # App de controle de estoque
 
-Um app de controle de estoque desenvolvido com Vue3 e Bootstrap5
+Um app de controle de estoque desenvolvido com Vue3 e Bootstrap5.
+O repositório do backend se encontra aqui: [https://github.com/marcoswitcel/restfulwebapi](https://github.com/marcoswitcel/restfulwebapi)
 
 ## Setup do projeto
 
@@ -14,7 +15,7 @@ npm install
 
 Para testar use o server de desenvolvimento.
 
-### Serve de desenvolvimento
+### Server de desenvolvimento
 
 Para rodar o serve de desenvolvimento, rode o comando `npm run serve` na paz raíz do projeto.
 O app vai rodar na porta 3000, foi modificado para não conflitar com a porta padrão do SpringBoot.
