@@ -14,6 +14,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Descrição</th>
+          <th scope="col">Quantidade em estoque</th>
           <th scope="col">Lucro</th>
           <th scope="col">Vendas totais</th>
         </tr>
@@ -22,6 +23,7 @@
         <tr v-for="entry of collectionData" :key="entry.id" :class="{ 'pe-none': entry.placeholder}">
           <th scope="row">{{ entry.product.id }}</th>
           <td>{{ entry.product.description }}</td>
+          <td>{{ entry.product.quantityInStock }}</td>
           <td>{{ entry.profitQuantity }}</td>
           <td>{{ entry.salesQuantity }}</td>
         </tr>
@@ -51,6 +53,23 @@ export default {
     }
   },
   methods: {
+    summarizeSales (data) {
+      for (const entry of data) {
+        entry.profitQuantity = 0;
+        entry.salesQuantity = 0;
+        for (const movement of entry.product.productMovements) {
+          if (movement.type === 'SALE') {
+            entry.profitQuantity += movement.sellPrice * movement.quantity;
+            entry.salesQuantity += movement.quantity;
+          }
+          if (movement.type === 'PURCHASE') {
+            entry.profitQuantity -= movement.sellPrice * movement.quantity;
+          }
+        }
+      }
+
+      return data;
+    },
     async updateCollection () {
       const response = await ProductRepository.getReport({
         page: this.page,
@@ -61,7 +80,7 @@ export default {
         // eslint-disable-next-line
           console.trace(response.error);
       } else {
-        this.collectionData = response.data;
+        this.collectionData = this.summarizeSales(response.data);
       }
     },
     async handleDeleteRequest (product) {
