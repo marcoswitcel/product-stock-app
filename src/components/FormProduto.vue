@@ -18,7 +18,7 @@
 
       <div class="mb-3">
         <label for="input_price" class="form-label">Preço</label>
-        <input type="number" v-model="model.price" class="form-control" id="input_price" name="input_price" required>
+        <input type="number" step="any" v-model="model.price" class="form-control" id="input_price" name="input_price" required>
       </div>
 
       <div class="mb-3">
