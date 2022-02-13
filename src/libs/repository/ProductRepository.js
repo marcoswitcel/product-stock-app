@@ -63,6 +63,21 @@ export class ProductRepository {
       return { error };
     }
   }
+
+  /**
+   * Deleta o registro da base de dados
+   *
+   * @param {number} id Id do produto que deve ser retornado
+   * @returns {Promise<object>}
+   */
+  static async delete (id) {
+    try {
+      const response = await axios.delete(`/api/v1/product/${id}`);
+      return response.data;
+    } catch (error) {
+      return { error };
+    }
+  }
 }
 
 export default ProductRepository;
