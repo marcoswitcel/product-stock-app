@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
 import ProductRepository from '../libs/repository/ProductRepository.js';
 import ProducTypeRepository from '../libs/repository/ProducTypeRepository.js';
 
@@ -53,11 +54,7 @@ export default {
     }
   },
   data () {
-    const model = (this.registry) ? this.registry : {
-      product: { id: '' },
-      type: '',
-      quantity: ''
-    };
+    const model = (this.registry) ? this.registry : this.defaultModel();
 
     return {
       isUpdating: !!this.registry,
@@ -68,16 +65,40 @@ export default {
     };
   },
   methods: {
+    defaultModel () {
+      return {
+        product: { id: '' },
+        type: '',
+        quantity: ''
+      };
+    },
     async checkForm (event) {
       event.preventDefault();
 
       const response = await ProducTypeRepository.add(this.model);
 
-      if (response.error) {
-        // eslint-disable-next-line
-        console.trace(response.error);
+      if (response.error && response.error.response && response.error.response.data) {
+        Swal.fire(
+          'Notificação',
+          response.error.response.data.message,
+          'warning'
+        );
       } else {
-        this.$router.push({ name: 'Produto.Listagem' });
+        const userChoice = await Swal.fire({
+          title: 'Desejar cadastrar mais movimentos?',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sim',
+          cancelButtonText: 'Não, voltar para listagem'
+        });
+
+        if (userChoice.isConfirmed) {
+          this.model = this.defaultModel();
+        } else {
+          this.$router.push({ name: 'Produto.Listagem' });
+        }
       }
     }
   },
