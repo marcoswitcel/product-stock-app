@@ -10,11 +10,9 @@
 
       <div class="mb-3">
         <label for="input_productType" class="form-label">Tipo do produto</label>
-        <select id="input_productType" v-model="model.productType" class="form-select" name="input_productType" aria-label="Selecione o tipo do produto" required>
+        <select id="input_productType" v-model="model.productType.id" class="form-select" name="input_productType" aria-label="Selecione o tipo do produto" required>
           <option hidden disabled selected value="">Selecione o tipo do produto</option>
-          <option value="1">Eletrônico</option>
-          <option value="2">Eletrodoméstico</option>
-          <option value="3">Móvel</option>
+          <option v-for="entry of productTypeCollection" :key="entry" :value="entry.id">{{entry.name}}</option>
         </select>
       </div>
 
@@ -35,6 +33,7 @@
 
 <script>
 import ProductRepository from '../libs/repository/ProductRepository.js';
+import ProducTypeRepository from '../libs/repository/ProducTypeRepository.js';
 
 export default {
   name: 'FormProduto',
@@ -62,7 +61,8 @@ export default {
       isUpdating: !!this.registry,
       sendingState: false,
       wasValidated: false,
-      model
+      model,
+      productTypeCollection: []
     };
   },
   methods: {
@@ -79,6 +79,16 @@ export default {
       } else {
         this.$router.push({ name: 'Produto.Listagem' });
       }
+    }
+  },
+  async created () {
+    const response = await ProducTypeRepository.getAll();
+
+    if (response.error) {
+      // eslint-disable-next-line
+      console.trace(response.error);
+    } else {
+      this.productTypeCollection = response.data;
     }
   }
 };
