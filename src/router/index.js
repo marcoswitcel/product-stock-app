@@ -12,22 +12,22 @@ const routes = [
     component: () => import('../views/Layout.vue'),
     children: [
       {
-        path: './',
+        path: '/produto/',
         name: 'Produto.Listagem',
         component: () => import('../views/produto/ProdutoListagem.vue')
       },
       {
-        path: './cadastro',
+        path: '/produto/cadastro',
         name: 'Produto.Cadastro',
         component: () => import('../views/produto/ProdutoCadastro.vue')
       },
       {
-        path: './edicao/:id',
+        path: '/produto/edicao/:id',
         name: 'Produto.Edicao',
         component: () => import('../views/produto/ProdutoEdicao.vue')
       },
       {
-        path: './visualizacao/:id',
+        path: '/produto/visualizacao/:id',
         name: 'Produto.Visualizacao',
         component: () => import('../views/produto/ProdutoVisualizacao.vue')
       }
