@@ -27,7 +27,10 @@
       </div>
     </fieldset>
 
-    <button v-if="!this.readOnlyMode" type="submit" class="btn btn-primary">Cadastrar</button>
+    <div class="d-flex justify-content-center">
+      <router-link :to="{ name: 'Produto.Listagem' }" class="btn btn-secondary m-1">Voltar</router-link>
+      <button v-if="!this.readOnlyMode" type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
   </form>
 </template>
 
